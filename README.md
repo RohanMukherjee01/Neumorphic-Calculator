@@ -23,6 +23,6 @@ A sleek, modern, and highly responsive web-based standard calculator built using
 ## 🛠️ How to Run This Project Locally
 
 Since this is a client-side application, you don't need any local servers (like XAMPP/Apache) to run it.
--------------
+
 Developed with ❤️ by Rohan | Cloud & Infrastructure Engineer | Tech Educator
--------------
+-
