@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neumorphic Calculator</title>
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+    <div class="toggleBtn">
+        <div class="icon-box">
+            <ion-icon name="moon-outline" id="theme-icon"></ion-icon>
+        </div>
+    </div>
+
+    <div class="calculator">
+        <div class="display">
+            <h2 id="value"></h2>
+        </div>
+        <div class="buttons">
+            <span id="clear" class="special">Clear</span>
+            <span class="operator">/</span>
+            <span class="operator">*</span>
+            <span>7</span>
+            <span>8</span>
+            <span>9</span>
+            <span class="operator">-</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span id="plus" class="operator">+</span>
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>0</span>
+            <span>00</span>
+            <span>.</span>
+            <span id="equal" class="special">=</span>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script>
+        let btn = document.querySelectorAll('span');
+        let value = document.getElementById('value');
+        let toggleBtn = document.querySelector('.toggleBtn');
+        let body = document.querySelector('body');
+        let icon = document.getElementById('theme-icon');
+
+        for (let i = 0; i < btn.length; i++) {
+            btn[i].addEventListener("click", function() {
+                if (this.innerHTML == "=") {
+                    try {
+                        value.innerHTML = eval(value.innerHTML);
+                    } catch {
+                        value.innerHTML = "Error";
+                    }
+                } else if (this.innerHTML == "Clear") {
+                    value.innerHTML = "";
+                } else {
+                    value.innerHTML += this.innerHTML;
+                }
+            }) 
+        }
+
+        toggleBtn.onclick = function() {
+            body.classList.toggle('dark');
+            if(body.classList.contains('dark')) {
+                icon.setAttribute("name", "sunny-outline");
+            } else {
+                icon.setAttribute("name", "moon-outline");
+            }
+        }
+    </script>
+</body>
+</html>
